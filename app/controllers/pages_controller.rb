@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def index
+    puts "in index method yo"
     @pages = Page.all 
+
     # although we don;t rails automatically does this for us 
     #rails is going to look for index.html.erb in the views/pages folder
   end
@@ -33,6 +35,10 @@ class PagesController < ApplicationController
     redirect_to pages_path
   end
 
+  def destroy
+    Page.find(params[:id]).destroy
+    redirect_to pages_path
+  end
 
   def create
     @page = Page.new(pages_params)
@@ -46,6 +52,6 @@ class PagesController < ApplicationController
   private
 
   def pages_params
-    params.require(:page).permit(:title, :author, :body)
+    params.require(:page).permit(:subject, :author, :note)
   end
 end

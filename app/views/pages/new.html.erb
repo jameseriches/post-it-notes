@@ -1,0 +1,10 @@
+<h1>Create New Note</h1>
+<%= form_for @page do |f| %>
+  <%= f.label :subject %>
+  <%= f.text_field :subject %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :note %>
+  <%= f.text_area :note %>
+  <%= f.submit %>
+<% end %>
